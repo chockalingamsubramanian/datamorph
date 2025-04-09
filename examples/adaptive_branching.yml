@@ -1,0 +1,14 @@
+# This pipeline showcases how DataMorph uses an LLM to suggest the next step dynamically.
+# First, it summarizes text, then transforms it.
+# The LLM is prompted to infer the next logical step based on memory.
+# LLM will be prompted to suggest what's next based on memory/context
+# Shows off: LLM branching between summarize → transform or stop
+
+pipeline:
+  - step: summarize_text
+    input: "data/sample.txt"
+
+  - step: transform_data
+    input: "data/sample.txt"
+
+
