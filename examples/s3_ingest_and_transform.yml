@@ -1,0 +1,12 @@
+pipeline:
+  - step: load_data_from_s3
+    input:
+      bucket: "demo-bucket"
+      key: "input/data.txt"
+
+  - step: transform_data
+    input: "data/data.txt"
+
+# Shows off: S3 ingest and simple transformation
+# Simulates an S3-to-transform pipeline.
+# Downloads a file from S3 and transforms it to uppercase.
