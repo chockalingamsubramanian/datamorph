@@ -3,9 +3,13 @@
 from datamorph.llm.llm_agent import suggest_next_step
 from datamorph.steps.registry import STEP_REGISTRY
 from .context_manager import ContextManager
+from datamorph.utils.logger import get_logger
+from datamorph.utils.timer import timeit
+
+log = get_logger("DataMorphExecutor")
 
 def execute_pipeline(pipeline_steps):
-    print("🚀 Starting pipeline execution...\n")
+    log.info("🚀 Starting pipeline execution...")
 
     context = ContextManager()
     context_summary = "No prior steps executed."
@@ -14,26 +18,24 @@ def execute_pipeline(pipeline_steps):
         step_name = step.get("step")
         input_data = step.get("input", None)
 
-        print(f"🔹 Step {i}: {step_name}")
+        log.info(f"🔹 Step {i}: {step_name}")
         if input_data:
-            print(f"  📥 Input: {input_data}")
+            log.info(f"📥 Input: {input_data}")
 
-        # Get and execute the step function
         func = STEP_REGISTRY.get(step_name)
         if func:
-            result = func(input_data)
+            with timeit(f"Execution time for step '{step_name}'"):
+                result = func(input_data)
         else:
-            print(f"  ⚠️ Step '{step_name}' not implemented. Skipping.\n")
+            log.warning(f"⚠️ Step '{step_name}' not implemented. Skipping.")
             result = None
 
-        # Update memory/context
         context.update(f"step_{i}_output", result)
         context_summary = str(context.snapshot())
 
-        # Ask LLM what the next step might be
         pipeline_description = f"Current step: {step_name}, Input: {input_data}"
         next_step = suggest_next_step(context_summary, pipeline_description)
 
-        print(f"  🤖 LLM suggests next step could be: **{next_step}**\n")
+        log.info(f"🤖 LLM suggests next step: **{next_step}**\n")
 
-    print("✅ Pipeline completed.")
+    log.info("✅ Pipeline completed.")
