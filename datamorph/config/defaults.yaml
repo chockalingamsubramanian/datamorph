@@ -1,0 +1,10 @@
+# Global default settings (e.g., model name, fallback steps)
+llm:
+  provider: "openai"
+  model: "gpt-3.5-turbo"
+  temperature: 0.3
+
+pipeline:
+  retry_attempts: 1
+  enable_logging: true
+  fallback_step: "log_error"

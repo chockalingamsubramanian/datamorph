@@ -1,0 +1,5 @@
+Welcome to DataMorph!
+This is an example text file used for demonstrating LLM-guided pipelines.
+Each line here is part of a mock data input.
+You can add more lines, simulate logs, or feed raw text from other sources.
+Have fun building adaptive pipelines!

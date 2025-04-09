@@ -1,0 +1,4 @@
+# This pipeline demonstrates a simple text summarization step using a local function.
+pipeline:
+  - step: summarize_text
+    input: "data/sample.txt"

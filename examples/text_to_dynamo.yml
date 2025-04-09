@@ -1,0 +1,12 @@
+pipeline:
+  - step: summarize_text
+    input: "data/sample.txt"
+
+  - step: write_to_dynamo
+    input:
+      table_name: "MySummaryTable"
+      item: '{"summary": "This is a summarized result from DataMorph"}'
+
+#Shows off: Summarize → Push result to DynamoDB
+# A summary pipeline that writes the result to DynamoDB.
+# Useful for integrating AI-powered text processing with persistent storage.
