@@ -1,10 +1,7 @@
-# DataMorph
 
 <p align="center">
   <img src="datamorph.png" alt="DataMorph Logo" width="150"/>
 </p>
-
-<h1 align="center">DataMorph</h1>
 
 <p align="center">
   <strong>Adaptive, LLM-native pipeline orchestrator</strong><br>
@@ -27,5 +24,3 @@
 ```bash
 pip install datamorph
 datamorph run examples/simple_text_summarizer.yml
-
----
