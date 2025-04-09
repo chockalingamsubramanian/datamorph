@@ -1,0 +1,15 @@
+from setuptools import setup, find_packages
+
+setup(
+    name='datamorph',
+    version='0.1',
+    packages=find_packages(),
+    install_requires=[],
+    author='Chockalingam Subramanian',
+    description='Adaptive LLM-native data pipeline orchestrator',
+    entry_points={
+        'console_scripts': [
+            'datamorph=datamorph.core.runner:main'
+        ]
+    }
+)
