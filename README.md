@@ -1,5 +1,9 @@
 # DataMorph
 
+<p align="center">
+  <img src="datamorph.png" alt="DataMorph Logo" width="150"/>
+</p>
+
 <h1 align="center">DataMorph</h1>
 
 <p align="center">
