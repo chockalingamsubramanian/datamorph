@@ -1,0 +1,3 @@
+pipeline:
+  - step: summarize_text
+    input: "data/sample.txt"
