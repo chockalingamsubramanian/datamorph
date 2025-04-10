@@ -1,0 +1,13 @@
+/* Custom Streamlit UI Tweaks */
+h1 {
+    color: #2d87f0;
+  }
+  
+  .block-container {
+    padding-top: 2rem;
+  }
+  
+  button {
+    background-color: #2d87f0 !important;
+  }
+  
