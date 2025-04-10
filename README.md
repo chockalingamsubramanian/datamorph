@@ -28,5 +28,5 @@ pytest datamorph/tests/
 ## 📦 Installation
 
 ```bash
-pip install datamorph
+pip install pydatamorph
 datamorph run examples/simple_text_summarizer.yml
