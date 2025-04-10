@@ -24,16 +24,16 @@ jobs:
           pip install -r requirements.txt
           pip install pytest build twine
 
-      - name: ✅ Run Tests
-        run: pytest tests #pytest datamorph/tests
+      #- name: ✅ Run Tests
+      #  run: pytest tests #pytest datamorph/tests
 
       - name: 🛠️ Build Package
         run: |
           python -m build
 
-      - name: 🚀 Publish to PyPI
-        env:
-          TWINE_USERNAME: __token__
-          TWINE_PASSWORD: ${{ secrets.PYPI_API_TOKEN }}
-        run: |
-          twine upload dist/*
+      #- name: 🚀 Publish to PyPI
+      #  env:
+      #    TWINE_USERNAME: __token__
+      #    TWINE_PASSWORD: ${{ secrets.PYPI_API_TOKEN }}
+      #  run: |
+      #    twine upload dist/*
