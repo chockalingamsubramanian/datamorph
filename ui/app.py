@@ -25,7 +25,9 @@ if uploaded_file is not None:
         st.markdown(f"**Step {i}:** `{step.get('step')}` — Input: `{step.get('input')}`")
 
     if st.button("▶️ Run Pipeline"):
-        with open("temp_pipeline.yml", "w") as f:
+        #with open("temp_pipeline.yml", "w") as f:
+        #    f.write(file_content)
+        with open("temp_pipeline.yml", "w", encoding="utf-8") as f:
             f.write(file_content)
 
         st.success("Running pipeline...")
