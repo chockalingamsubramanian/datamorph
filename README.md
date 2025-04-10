@@ -19,6 +19,12 @@
 
 ---
 
+## Run All Tests (with pytest)
+pip install pytest
+pytest datamorph/tests/
+
+---
+
 ## 📦 Installation
 
 ```bash
