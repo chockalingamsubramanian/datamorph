@@ -1,4 +1,5 @@
-from datamorph.core.context_manager import ContextManager
+#from datamorph.core.context_manager import ContextManager
+from core.context_manager import ContextManager
 
 def test_context_manager_store_and_retrieve():
     ctx = ContextManager()
