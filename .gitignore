@@ -4,3 +4,6 @@ __pycache__/
 .idea/
 .vscode/
 *.log
+pydatamorph.egg-info/
+data/sample_transformed.txt
+temp_pipeline.yml

@@ -2,7 +2,7 @@
 
 from datamorph.llm.llm_agent import suggest_next_step
 from datamorph.steps.registry import STEP_REGISTRY
-from .context_manager import ContextManager
+from datamorph.core.context_manager import ContextManager
 from datamorph.utils.logger import get_logger
 from datamorph.utils.timer import timeit
 

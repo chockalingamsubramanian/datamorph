@@ -1,7 +1,7 @@
 # CLI entry point for running a pipeline
 import argparse
-from .pipeline_loader import load_pipeline
-from .executor import execute_pipeline
+from datamorph.core.pipeline_loader import load_pipeline
+from datamorph.core.executor import execute_pipeline
 from datamorph.utils.logger import get_logger
 
 log = get_logger("DataMorphRunner")
