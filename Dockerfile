@@ -10,4 +10,4 @@ RUN pip install --no-cache-dir .
 
 EXPOSE 8501
 
-CMD ["calculator"]
+CMD ["streamlit", "run", "ui/app.py"]
