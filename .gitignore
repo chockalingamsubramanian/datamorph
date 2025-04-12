@@ -7,3 +7,4 @@ __pycache__/
 pydatamorph.egg-info/
 data/sample_transformed.txt
 temp_pipeline.yml
+.pytest_cache/
