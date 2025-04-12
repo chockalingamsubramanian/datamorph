@@ -1,8 +1,8 @@
 # Streamlit UI entry point
 import streamlit as st
 import yaml
-from datamorph.core.pipeline_loader import load_pipeline
-from datamorph.core.executor import execute_pipeline
+from datamorph.datamorph.core.pipeline_loader import load_pipeline
+from datamorph.datamorph.core.executor import execute_pipeline
 from ui.pipeline_utils import parse_yaml_steps
 
 st.set_page_config(page_title="DataMorph UI", layout="wide")
