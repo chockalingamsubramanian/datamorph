@@ -2,11 +2,12 @@ from setuptools import setup, find_packages
 
 setup(
     name='pydatamorph',
-    version='1.0.3',
+    version='1.0.4',
     packages=find_packages(),
     include_package_data=True,
     install_requires=[
-        "streamlit>=1.0"
+        "streamlit>=1.0",
+        "pyyaml>=6.0"
     ],
     author='Chockalingam Subramanian',
     description='Adaptive LLM-native data pipeline orchestrator',
