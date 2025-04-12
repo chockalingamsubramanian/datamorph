@@ -1,4 +1,4 @@
-name: 🛠️ Build, Test & Publish to PyPI
+name: 🛠️ Build, Test & Publish to PyPI && Docker Hub
 
 on:
   push:
