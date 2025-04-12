@@ -5,11 +5,6 @@ from datamorph.utils.logger import get_logger
 
 log = get_logger("DataMorphOpenAIConnector")
 
-#def getapikey():
-#    with open('/run/secrets/my_secret') as f:
-#        api_key = f.read().strip()
-#    return api_key
-
 def getapikey():
     # Load environment variables from .env
     #load_dotenv() # <<-- use this for local development
