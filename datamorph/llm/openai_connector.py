@@ -1,11 +1,10 @@
 import os
-import openai
+from openai import OpenAI
 
 #from dotenv import load_dotenv
 # Load environment variables from .env
 #load_dotenv() <<-- use this for local development
 #api_key=os.getenv("OPENAI_API_KEY") <<-- use this for local development
-
 
 #def getapikey():
 #    with open('/run/secrets/my_secret') as f:
@@ -14,12 +13,12 @@ import openai
 # Initialize OpenAI client
 #client = OpenAI(api_key=getapikey())
 
-# ECS injects this secret into the container as an environment variable
-openai.api_key = os.getenv("OPENAI_API_KEY")
-
 def call_llm(prompt, model="gpt-3.5-turbo"):
     try:
-        response = openai.ChatCompletion.create(
+        # ECS injects this secret into the container as an environment variable
+        api_key = os.getenv("OPENAI_API_KEY")
+        client = OpenAI(api_key)
+        response = client.chat.completions.create(
             model=model,
             messages=[
                 {"role": "system", "content": "You are a helpful pipeline planner."},
