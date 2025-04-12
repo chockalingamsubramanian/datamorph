@@ -1,5 +1,5 @@
 pyyaml
-streamlit
 boto3
 openai
 pytest
+streamlit>=1.0

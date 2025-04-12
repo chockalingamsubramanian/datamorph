@@ -9,6 +9,11 @@ jobs:
   build-test-publish:
     runs-on: ubuntu-latest
 
+    env:
+      DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+      DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+      IMAGE_NAME: datamorph
+
     steps:
       - name: Checkout Repo
         uses: actions/checkout@v3
@@ -16,7 +21,7 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
-          python-version: '3.10'
+          python-version: '3.9'
 
       - name: Install Dependencies
         run: |
@@ -37,3 +42,12 @@ jobs:
           TWINE_PASSWORD: ${{ secrets.PYPI_API_TOKEN }}
         run: |
           twine upload dist/*
+
+      - name: Log in to Docker Hub
+        run: echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+      
+      - name: Build Docker image
+        run: docker build -t $DOCKER_USERNAME/$IMAGE_NAME:latest .
+      
+      - name: Push Docker image
+        run: docker push $DOCKER_USERNAME/$IMAGE_NAME:latest
