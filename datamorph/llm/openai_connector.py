@@ -17,6 +17,7 @@ def call_llm(prompt, model="gpt-3.5-turbo"):
     try:
         # ECS injects this secret into the container as an environment variable
         api_key = os.getenv("OPENAI_API_KEY")
+        print(f"read the key: {api_key}")
         client = OpenAI(api_key)
         response = client.chat.completions.create(
             model=model,
