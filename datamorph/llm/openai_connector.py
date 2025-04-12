@@ -3,10 +3,17 @@ from openai import OpenAI
 from dotenv import load_dotenv
 
 # Load environment variables from .env
-load_dotenv()
+#load_dotenv() <<-- use this for local development
+
+def getapikey:
+    with open('/run/secrets/my_secret') as f:
+        api_key = f.read().strip()
+    return api_key
+
+#api_key=os.getenv("OPENAI_API_KEY") <<-- use this for local development
 
 # Initialize OpenAI client
-client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
+client = OpenAI(api_key=getapikey())
 
 def call_llm(prompt, model="gpt-3.5-turbo"):
     try:
