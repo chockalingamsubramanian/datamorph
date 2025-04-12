@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='pydatamorph',
-    version='1.1.1',
+    version='1.1.2',
     #packages=find_packages(),
     packages=['datamorph','datamorph.core','datamorph.ui','datamorph.config','datamorph.llm','datamorph.steps','datamorph.utils'],
     include_package_data=True,
