@@ -1,0 +1,9 @@
+version: '3.7'
+services:
+  myservice:
+    image: datamorph
+    secrets:
+      - my_secret
+secrets:
+  my_secret:
+    file: ./my_secret.txt
