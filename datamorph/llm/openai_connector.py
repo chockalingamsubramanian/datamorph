@@ -7,10 +7,14 @@ log = get_logger("DataMorphOpenAIConnector")
 
 def getapikey():
     # Load environment variables from .env
+
     #load_dotenv() # <<-- use this for local development
     #api_key=os.getenv("OPENAI_API_KEY") # <<-- use this for local development
+
     # ECS injects this secret into the container as an environment variable
+    
     api_key=os.getenv("OPENAI_API_KEY") # <<-- use this for aws deployments
+    
     log.info(f"read the api key: {api_key}")
     return api_key
 
@@ -19,6 +23,8 @@ client = OpenAI(api_key=getapikey())
 
 def call_llm(prompt, model="gpt-3.5-turbo"):
     try:
+        log.info(f"prompt that is sent to LLM:")
+        log.info(f"{prompt}")
         response = client.chat.completions.create(
             model=model,
             messages=[

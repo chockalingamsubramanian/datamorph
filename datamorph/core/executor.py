@@ -12,7 +12,9 @@ def execute_pipeline(pipeline_steps):
     log.info("🚀 Starting pipeline execution...")
 
     context = ContextManager()
+    log.info(f"Context: {context}")
     context_summary = "No prior steps executed."
+    log.info(f"Context: {context_summary}")
 
     for i, step in enumerate(pipeline_steps, start=1):
         step_name = step.get("step")
@@ -31,7 +33,9 @@ def execute_pipeline(pipeline_steps):
             result = None
 
         context.update(f"step_{i}_output", result)
+        log.info(f"Context: {context}")
         context_summary = str(context.snapshot())
+        log.info(f"Context: {context_summary}")
 
         pipeline_description = f"Current step: {step_name}, Input: {input_data}"
         next_step = suggest_next_step(context_summary, pipeline_description)

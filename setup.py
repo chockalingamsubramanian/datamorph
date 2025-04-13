@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='pydatamorph',
-    version='1.1.6',
+    version='1.1.7', #version bump to-do every time to get the pypi and docker deployment to succeed
     #packages=find_packages(),
     packages=['datamorph','datamorph.core','datamorph.ui','datamorph.config','datamorph.llm','datamorph.steps','datamorph.utils'],
     include_package_data=True,
